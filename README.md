@@ -1,1 +1,2 @@
-# Doing-math-python
+# Doing-Math-Python 
+# Pythonから始める数学
