@@ -1,0 +1,33 @@
+from sympy import Symbol, Limit, sympify #sympify:sympyオブジェクトに変換
+from sympy.core.sympify import SympifyError
+
+def check_renzoku(f, var, a):
+
+   l1 = Limit(f, var, a, dir ='+').doit() #dir:方向
+   l2 = Limit(f, var, a, dir ='-').doit()
+   f_val = f.subs({var:a})
+
+   if l1 == l2 and f_val == l1:
+    
+       print('{0} is continuous at {1}'.format(f, a))
+    
+   else:
+    
+       print('{0} is not continuous at {1}'.format(f, a))
+    
+
+if __name__=='__main__':
+     
+    f = input('Enter　a function:')
+    var = input('Enter the variable to differentiate  with respect to:')
+    a = float(input('Enter the point to check the continuity at:'))
+    
+try: 
+        f = sympify(f) #文字列を数式に変換
+    
+except SympifyError: #エラーの場合エラーを表示
+        print('Invalid function entered')
+
+else:
+     var = Symbol('var')
+     d = check_renzoku(f, var, a)
