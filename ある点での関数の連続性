@@ -31,3 +31,5 @@ except SympifyError: #エラーの場合エラーを表示
 else:
      var = Symbol('var')
      d = check_renzoku(f, var, a)
+
+//manko
